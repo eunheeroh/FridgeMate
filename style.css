@@ -1,0 +1,1233 @@
+/* ========================================
+   CSS 변수 (색상 팔레트)
+   ======================================== */
+:root {
+  --primary: #1B8A6B;
+  --primary-light: #E8F5EE;
+  --primary-dark: #14725A;
+  --coral: #E85D3A;
+  --coral-light: #FFF0EC;
+  --amber: #E69B00;
+  --amber-light: #FFF8E1;
+  --amber-dark: #92650A;
+  --blue: #2B7BD5;
+  --blue-light: #EBF4FF;
+  --pink: #D4537E;
+  --pink-light: #FDF0F5;
+  --gray: #6B7280;
+  --gray-light: #F3F4F6;
+  --bg: #FAFBFC;
+  --white: #FFFFFF;
+  --text: #1F2937;
+  --text-sec: #6B7280;
+  --border: #E5E7EB;
+  --danger: #EF4444;
+  --success: #10B981;
+  --warning: #F59E0B;
+}
+
+/* ========================================
+   리셋 & 기본 스타일
+   ======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  /* 화면 전체 배경 그라데이션 (스크롤해도 고정) */
+  background: linear-gradient(160deg, var(--primary-light) 0%, var(--bg) 45%, var(--blue-light) 100%) fixed;
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+}
+
+input, select {
+  font-family: inherit;
+}
+
+/* ========================================
+   앱 레이아웃
+   ======================================== */
+#app {
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+#main-content {
+  padding-bottom: 96px;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* ========================================
+   하단 네비게이션 바
+   ======================================== */
+#bottom-nav {
+  position: fixed;
+  bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 24px);
+  max-width: 456px;
+  background: rgba(255, 255, 255, 0.78);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  backdrop-filter: blur(14px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 22px;
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.14);
+  display: flex;
+  gap: 2px;
+  padding: 7px 6px;
+  z-index: 100;
+}
+
+.nav-btn {
+  flex: 1;
+  border: none;
+  background: none;
+  padding: 7px 0 6px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  color: var(--text-sec);
+  border-radius: 14px;
+  transition: color 0.25s ease, background 0.25s ease;
+}
+
+.nav-btn:hover {
+  color: var(--primary);
+}
+
+.nav-btn i {
+  font-size: 21px;
+  transition: transform 0.25s ease;
+}
+
+.nav-btn span {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+}
+
+.nav-btn.active {
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+.nav-btn.active i {
+  transform: translateY(-1px);
+}
+
+.nav-btn.active span {
+  font-weight: 700;
+}
+
+/* ========================================
+   공통 헤더
+   ======================================== */
+.page-header {
+  position: sticky;
+  top: 0;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  z-index: 50;
+  min-height: 48px;
+}
+
+.page-header h1 {
+  flex: 1;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.btn-back {
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin-right: 8px;
+  color: var(--text);
+  font-size: 20px;
+}
+
+.btn-header {
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* ========================================
+   공통 버튼 스타일
+   ======================================== */
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover { opacity: 0.9; }
+
+.btn-danger-outline {
+  width: 100%;
+  padding: 14px;
+  background: none;
+  color: var(--danger);
+  border: 1px solid var(--danger);
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* ========================================
+   공통 입력 스타일
+   ======================================== */
+.input-field {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  margin-top: 6px;
+  background: var(--white);
+}
+
+.input-field:focus {
+  border-color: var(--primary);
+}
+
+.input-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* ========================================
+   공통 카드 스타일
+   ======================================== */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 10px;
+}
+
+/* ========================================
+   배지 / 태그
+   ======================================== */
+.badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.badge-danger {
+  color: var(--danger);
+  background: #FEE2E2;
+}
+
+.badge-warning {
+  color: var(--warning);
+  background: #FEF3C7;
+}
+
+.badge-success {
+  color: var(--success);
+  background: #D1FAE5;
+}
+
+.tag {
+  font-size: 12px;
+  background: var(--primary-light);
+  color: var(--primary);
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+/* ========================================
+   홈 페이지
+   ======================================== */
+.home-hero {
+  /* 녹색 반투명 오버레이 + 인터넷 음식 사진 (Unsplash) */
+  background:
+    linear-gradient(135deg, rgba(27, 138, 107, 0.82), rgba(20, 114, 90, 0.88)),
+    url("https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=60");
+  background-size: cover;
+  background-position: center;
+  padding: 24px 16px 28px;
+  color: #fff;
+}
+
+.home-hero p.subtitle {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-bottom: 4px;
+}
+
+.home-hero h2 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.home-hero h2 span {
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 0.8;
+  margin-left: 6px;
+}
+
+.home-hero p.desc {
+  font-size: 13px;
+  opacity: 0.75;
+  margin-top: 8px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.section-link {
+  border: none;
+  background: none;
+  color: var(--primary);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.urgent-scroll {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.urgent-scroll::-webkit-scrollbar { display: none; }
+
+.urgent-card {
+  min-width: 110px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  flex-shrink: 0;
+}
+
+.urgent-card .name {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 8px 0 2px;
+}
+
+.urgent-card .qty {
+  font-size: 12px;
+  color: var(--text-sec);
+}
+
+.home-recommend {
+  background: var(--coral-light);
+  border-radius: 14px;
+  padding: 16px;
+  cursor: pointer;
+  border: 1px solid rgba(232, 93, 58, 0.12);
+}
+
+.home-recommend h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--coral);
+}
+
+.home-recommend .match {
+  font-size: 12px;
+  color: var(--coral);
+  font-weight: 600;
+}
+
+.home-recommend .desc {
+  font-size: 13px;
+  color: var(--text-sec);
+  margin-top: 6px;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 20px 16px 0;
+}
+
+.stat-card {
+  border-radius: 14px;
+  padding: 16px;
+  cursor: pointer;
+  border: none;
+  text-align: left;
+  width: 100%;
+}
+
+.stat-card i {
+  font-size: 28px;
+}
+
+.stat-card .number {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 6px 0 2px;
+}
+
+.stat-card .label {
+  font-size: 12px;
+  color: var(--text-sec);
+}
+
+.quick-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 12px 16px;
+}
+
+.quick-btn {
+  border-radius: 14px;
+  padding: 14px 16px;
+  cursor: pointer;
+  border: none;
+  text-align: left;
+}
+
+.quick-btn i { font-size: 22px; }
+
+.quick-btn p {
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* ========================================
+   냉장고 페이지
+   ======================================== */
+.search-box {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.search-box i {
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  color: var(--gray);
+  font-size: 18px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px 12px 10px 38px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  background: var(--gray-light);
+}
+
+.category-tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.category-tabs::-webkit-scrollbar { display: none; }
+
+.cat-btn {
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+  background: var(--gray-light);
+  color: var(--text-sec);
+}
+
+.cat-btn.active {
+  background: var(--primary);
+  color: #fff;
+}
+
+.fridge-item {
+  display: flex;
+  align-items: center;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.fridge-item:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.fridge-item .color-bar {
+  width: 4px;
+  height: 40px;
+  border-radius: 2px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.fridge-item .info { flex: 1; }
+
+.fridge-item .name-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fridge-item .name {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.fridge-item .dday {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.fridge-item .meta {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--text-sec);
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--text-sec);
+  padding: 40px 0;
+}
+
+.empty-state i {
+  font-size: 48px;
+  opacity: 0.3;
+}
+
+.empty-state p {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.empty-state .sub {
+  font-size: 12px;
+}
+
+/* ========================================
+   레시피 페이지
+   ======================================== */
+.recipe-hero {
+  background: linear-gradient(135deg, var(--coral), #C44A28);
+  border-radius: 16px;
+  padding: 20px 18px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.recipe-hero h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 6px 0 14px;
+}
+
+.recipe-hero .sub {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.btn-recommend {
+  background: #fff;
+  color: var(--coral);
+  border: none;
+  border-radius: 12px;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.recipe-hero .note {
+  font-size: 11px;
+  margin-top: 10px;
+  opacity: 0.75;
+}
+
+.ingredient-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+  align-items: center;
+}
+
+.ingredient-tags .label {
+  font-size: 12px;
+  color: var(--text-sec);
+  line-height: 26px;
+}
+
+.recipe-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.recipe-card:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.recipe-card .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.recipe-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.recipe-card .desc {
+  font-size: 13px;
+  color: var(--text-sec);
+  margin-top: 4px;
+}
+
+.recipe-card .match {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 4px 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+
+.recipe-card .meta-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--text-sec);
+}
+
+/* 로딩 스피너 */
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: var(--coral);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.loading-state {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.loading-state p {
+  color: var(--text-sec);
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+/* ========================================
+   레시피 상세 페이지
+   ======================================== */
+.recipe-detail-hero {
+  background: var(--coral-light);
+  border-radius: 16px;
+  padding: 20px 18px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(232,93,58,0.08);
+}
+
+.recipe-detail-hero h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--coral);
+}
+
+.recipe-detail-hero .desc {
+  font-size: 13px;
+  color: var(--text-sec);
+  margin-top: 6px;
+}
+
+.recipe-detail-hero .meta {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--coral);
+}
+
+.ingredient-row {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.ingredient-row .icon { font-size: 18px; margin-right: 10px; }
+.ingredient-row .name { font-size: 14px; flex: 1; }
+.ingredient-row .name.missing { color: var(--danger); font-weight: 500; }
+
+.btn-add-shopping {
+  width: 100%;
+  padding: 14px;
+  background: var(--amber);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 16px;
+}
+
+.step-row {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.step-num {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.step-text {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ========================================
+   장보기 페이지
+   ======================================== */
+.shopping-input-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.shopping-input-row input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+.shopping-input-row input:focus {
+  border-color: var(--amber);
+}
+
+.btn-add-item {
+  background: var(--amber);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.shopping-section-label {
+  font-size: 13px;
+  color: var(--text-sec);
+  margin: 16px 0 8px;
+  font-weight: 500;
+}
+
+.shopping-section-label:first-of-type {
+  margin-top: 0;
+}
+
+.shopping-item {
+  display: flex;
+  align-items: center;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 6px;
+}
+
+.shopping-item.checked {
+  background: var(--gray-light);
+  opacity: 0.6;
+}
+
+.check-btn {
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  background: none;
+  cursor: pointer;
+  margin-right: 10px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: transparent;
+  transition: all 0.2s;
+}
+
+.check-btn.done {
+  border: none;
+  background: var(--success);
+  color: #fff;
+}
+
+.shopping-item .name {
+  flex: 1;
+  font-size: 14px;
+}
+
+.shopping-item.checked .name {
+  color: var(--text-sec);
+  text-decoration: line-through;
+}
+
+.btn-remove {
+  border: none;
+  background: none;
+  color: var(--gray);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-clear-checked {
+  border: none;
+  background: none;
+  color: var(--danger);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* ========================================
+   예산 페이지
+   ======================================== */
+.budget-summary {
+  background: var(--blue-light);
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(43,123,213,0.08);
+}
+
+.budget-summary .top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.budget-summary .label {
+  font-size: 14px;
+  color: var(--text-sec);
+}
+
+.btn-edit-budget {
+  border: none;
+  background: none;
+  color: var(--blue);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.budget-amount {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+
+.budget-edit-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.budget-edit-row input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+}
+
+.budget-edit-row button {
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0 16px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.progress-bar {
+  background: rgba(43,123,213,0.15);
+  border-radius: 6px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.5s;
+}
+
+.budget-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+.budget-footer .spent { color: var(--text-sec); }
+.budget-footer .remain { font-weight: 600; }
+
+.chart-container {
+  height: 200px;
+  position: relative;
+}
+
+.expense-form { margin-bottom: 16px; }
+
+.expense-form h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.expense-form input,
+.expense-form select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 8px;
+  outline: none;
+}
+
+.btn-record {
+  width: 100%;
+  padding: 12px;
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.section-title-h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+
+.expense-row {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.expense-row .info { flex: 1; }
+
+.expense-row .memo {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.expense-row .meta {
+  font-size: 12px;
+  color: var(--text-sec);
+  margin-top: 2px;
+}
+
+.expense-row .amount {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+/* ========================================
+   가족 페이지
+   ======================================== */
+.family-desc {
+  font-size: 13px;
+  color: var(--text-sec);
+  margin-bottom: 14px;
+}
+
+.family-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 10px;
+}
+
+.family-card .top-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.family-card .name-area { flex: 1; }
+
+.family-card .member-name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.family-card .member-age {
+  font-size: 13px;
+  color: var(--text-sec);
+  margin-left: 8px;
+}
+
+.btn-icon {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.family-card .detail-row {
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.detail-row .detail-label {
+  font-weight: 500;
+}
+
+.detail-row .detail-value {
+  color: var(--text-sec);
+}
+
+.family-form {
+  background: var(--pink-light);
+  border: 1px solid rgba(212,83,126,0.19);
+  border-radius: 14px;
+  padding: 16px;
+  margin-top: 10px;
+}
+
+.family-form h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--pink);
+  margin-bottom: 12px;
+}
+
+.family-form .form-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  margin-top: 10px;
+  display: block;
+}
+
+.family-form .form-label:first-of-type {
+  margin-top: 0;
+}
+
+.family-form input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  margin-top: 4px;
+}
+
+.family-form .btn-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.family-form .btn-cancel {
+  flex: 1;
+  padding: 12px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--text-sec);
+}
+
+.family-form .btn-save {
+  flex: 1;
+  padding: 12px;
+  background: var(--pink);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ========================================
+   유틸리티
+   ======================================== */
+.px-16 { padding-left: 16px; padding-right: 16px; }
+.mt-16 { margin-top: 16px; }
+.mt-20 { margin-top: 20px; }
+.mb-10 { margin-bottom: 10px; }
+.pb-100 { padding-bottom: 100px; }
+
+/* ========================================
+   반응형
+   ======================================== */
+
+/* 큰 화면(태블릿·데스크톱): 폰 프레임처럼 표시 (배경 그라데이션은 전체 유지) */
+@media (min-width: 481px) {
+  #app {
+    margin: 20px auto;
+    min-height: calc(100vh - 40px);
+    border-radius: 24px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  #bottom-nav {
+    bottom: calc(34px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* 작은 화면(소형 폰) 보정 */
+@media (max-width: 360px) {
+  .stat-grid { gap: 8px; }
+  .quick-grid { gap: 8px; }
+  .home-hero h2 { font-size: 20px; }
+  .home-hero { padding: 20px 14px 24px; }
+  .px-16 { padding-left: 12px; padding-right: 12px; }
+  .stat-card,
+  .quick-btn { padding: 12px; }
+  .stat-card .number { font-size: 18px; }
+  .page-header h1 { font-size: 17px; }
+  .nav-btn i { font-size: 20px; }
+  .nav-btn span { font-size: 10px; }
+}
+
+/* 매우 좁은 화면: 홈 통계/바로가기를 1열로 */
+@media (max-width: 300px) {
+  .stat-grid,
+  .quick-grid {
+    grid-template-columns: 1fr;
+  }
+}

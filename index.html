@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>냉장고 매니저 FridgeMate</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.6.0/tabler-icons.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<div id="app">
+  <!-- 메인 콘텐츠 영역 -->
+  <main id="main-content"></main>
+
+  <!-- 하단 네비게이션 바 -->
+  <nav id="bottom-nav">
+    <button class="nav-btn active" data-page="home">
+      <i class="ti ti-home"></i><span>홈</span>
+    </button>
+    <button class="nav-btn" data-page="fridge">
+      <i class="ti ti-fridge"></i><span>냉장고</span>
+    </button>
+    <button class="nav-btn" data-page="recipe">
+      <i class="ti ti-chef-hat"></i><span>레시피</span>
+    </button>
+    <button class="nav-btn" data-page="shopping">
+      <i class="ti ti-shopping-cart"></i><span>장보기</span>
+    </button>
+    <button class="nav-btn" data-page="budget">
+      <i class="ti ti-chart-pie"></i><span>예산</span>
+    </button>
+    <button class="nav-btn" data-page="family">
+      <i class="ti ti-users"></i><span>가족</span>
+    </button>
+  </nav>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
